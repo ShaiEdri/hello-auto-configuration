@@ -9,14 +9,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>hello-app</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>hello-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <artifactId>hello-starter</artifactId>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
