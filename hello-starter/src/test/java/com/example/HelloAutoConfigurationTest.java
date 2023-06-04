@@ -25,6 +25,7 @@ class HelloAutoConfigurationTest {
         contextRunner.run(context -> {
             assertEquals(1, context.getBeansOfType(HelloService.class).size());
             context.getBean(HelloService.class).sayHello("shai");
+            assertTrue(output.getOut().toString().contains("hello shai!!!"));
         });
     }
 }
