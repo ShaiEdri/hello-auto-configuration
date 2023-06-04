@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.boot.test.system.CapturedOutput;
 import org.springframework.boot.test.system.OutputCaptureExtension;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,4 +30,24 @@ class HelloAutoConfigurationTest {
             assertTrue(output.getOut().toString().contains("hello shai!!!"));
         });
     }
+
+    @Test
+    public void defaultServiceBacksOff(CapturedOutput output){
+        contextRunner
+                .withUserConfiguration(UserConfig.class)
+                .run(context -> {
+                    assertEquals(1, context.getBeansOfType(HelloService.class));
+                    context.getBean(HelloService.class).sayHello("works");
+                    assertTrue(output.getOut().toString().contains("USER works***"));
+        });
+    }
+
+    @Configuration
+    static class UserConfig{
+        @Bean
+        public HelloService helloService(){
+            return new HelloConsoleImpl("USER", "***");
+        }
+    }
+
 }
