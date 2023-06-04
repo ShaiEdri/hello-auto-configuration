@@ -32,6 +32,16 @@ class HelloAutoConfigurationTest {
     }
 
     @Test
+    public void defaultServiceIsAutoConfiguredProps(CapturedOutput output){
+        contextRunner
+                .run(context -> {
+            assertEquals(1, context.getBeansOfType(HelloService.class).size());
+            context.getBean(HelloService.class).sayHello("shai");
+            assertTrue(output.getOut().toString().contains("hello shai!!!"));
+        });
+    }
+
+    @Test
     public void defaultServiceBacksOff(CapturedOutput output){
         contextRunner
                 .withUserConfiguration(UserConfig.class)
