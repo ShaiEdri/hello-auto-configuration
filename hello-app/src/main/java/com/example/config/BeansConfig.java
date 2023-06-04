@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeansConfig {
-    @Bean
-    public HelloService helloService(){
-        return new HelloConsoleImpl("Hey", "!");
-    }
+//    @Bean
+//    public HelloService helloService(){
+//        return new HelloConsoleImpl("Hey", "!");
+//    }
 }
