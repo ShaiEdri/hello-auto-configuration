@@ -6,8 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ConditionalOnClass(HelloService.class)
 public class HelloAutoConfiguration {
     @Bean
+    @ConditionalOnMissingBean
     public HelloService helloService(){
         return new HelloConsoleImpl();
     }

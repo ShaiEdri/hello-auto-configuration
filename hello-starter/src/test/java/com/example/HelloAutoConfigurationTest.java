@@ -36,7 +36,7 @@ class HelloAutoConfigurationTest {
         contextRunner
                 .withUserConfiguration(UserConfig.class)
                 .run(context -> {
-                    assertEquals(1, context.getBeansOfType(HelloService.class));
+                    assertEquals(1, context.getBeansOfType(HelloService.class).size());
                     context.getBean(HelloService.class).sayHello("works");
                     assertTrue(output.getOut().toString().contains("USER works***"));
         });
