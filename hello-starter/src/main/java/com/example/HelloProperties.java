@@ -4,6 +4,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("hello")
 public class HelloProperties {
+    /**
+     * java doc
+     * doc the prop for later, the ide will recognize it
+     * */
     private String greeting = "Hello";
     private String ending = "!";
 
