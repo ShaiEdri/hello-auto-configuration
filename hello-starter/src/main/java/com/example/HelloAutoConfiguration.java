@@ -22,4 +22,10 @@ public class HelloAutoConfiguration {
         );
     }
 
+    @Bean
+    @ConditionalOnMissingBean
+    public HelloService helloService2() {
+        return new HelloConsoleImpl();
+    }
+
 }

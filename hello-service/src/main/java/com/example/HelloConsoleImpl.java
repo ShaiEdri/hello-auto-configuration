@@ -7,6 +7,9 @@ public class HelloConsoleImpl implements HelloService {
     public HelloConsoleImpl(String greeting, String ending) {
         this.greeting = (greeting != null ? greeting : "hello");
         this.ending = (ending != null ? ending : "!!!");
+        if (!Character.isUpperCase(this.greeting.charAt(0))){
+            throw new InvalidGreetingException(this.greeting);
+        }
     }
     public HelloConsoleImpl(){
         this(null, null);
